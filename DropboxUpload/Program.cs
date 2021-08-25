@@ -29,7 +29,7 @@ namespace DropboxUpload
             using (var mem = new MemoryStream(File.ReadAllBytes(fileToUpload)))
             {
                 var updated = await dbx.Files.UploadAsync(
-                   "/" folder + "/" + file,
+                   "/" + folder + "/" + file,
                     WriteMode.Overwrite.Instance,
                     body: mem);
                 Console.WriteLine("Saved {0}/{1} rev {2}", folder, file, updated.Rev);
